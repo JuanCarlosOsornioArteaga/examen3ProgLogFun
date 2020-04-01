@@ -88,12 +88,22 @@ P = ['Negro', 'Azul', 'Café Obscuro', 'Crema']
 A = ['Cinturón', 'Tirantes', 'Lentes', 'Fedora']
 U = [ [a,b,c] for a in C for b in P for c in A]
 print(U)
-L = len(U)
-print('La cantidad de combinaciones es:', L)
+K = len(U)
+print('La cantidad de combinaciones es:', K)
 
-"""
+"""    
 ¿Fedora?  <Comprensión de listas >  15 pts
 
 	Del problema anterior imprima una lista que tenga todos los conjuntos
-	que incluyen un sombrero fedora y tambien despliegue su longitud
+	que incluyen un sombrero fedora y tambien despliegue su longitud	
 """
+def contar(L):
+    if not L:
+        return[]
+    if 'Fedora' in L[0]:
+        return [L[0]]+contar(L[1:])
+    else:
+        return contar(L[1:])    
+LS=contar(l)
+print("Conjuntos con sombrero Fedora: ", LS)
+print("Numero de conjuntos: ", len (LS))
